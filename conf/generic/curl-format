@@ -1,0 +1,25 @@
+\n
+      Name Resolution Time  :  %{time_namelookup}\n
+       TCP Connection Time  :  %{time_connect}\n
+        SSL Handshake Time  :  %{time_appconnect}\n
+  File transfer begin Time  :  %{time_pretransfer}\n
+     Time for Redirections  :  %{time_redirect}\n
+         Start of Transfer  :  %{time_starttransfer}\n
+                            ----------------\n
+                Total Time  :  %{time_total}\n
+                            ----------------\n\n
+
+             Download Size  :  %{size_download}\n
+            Download Speed  :  %{speed_download}\n
+               Header Size  :  %{size_header}\n
+    Total Connections Made  :  %{num_connects}\n
+           Total Redirects  :  %{num_redirects}\n
+        HTTP Response Code  :  %{http_code}\n
+          SSL Verification  :  %{ssl_verify_result} (Zero implies success)\n\n
+
+           Local IP & Port  :  %{local_ip}:%{local_port}\n
+          Remote IP & Port  :  %{remote_ip}:%{remote_port}\n
+             Effective URL  :  %{url_effective}\n
+             HTTP Protocol  :  %{scheme} on HTTP%{http_version} \n
+              Content-Type  :  %{content_type}\n
+\n

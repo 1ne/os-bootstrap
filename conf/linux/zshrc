@@ -1,0 +1,40 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+
+# Prezto update
+alias pzupdate='cd $HOME/.zprezto && git pull && git submodule update --init --recursive && cd -'
+alias ls='ls --color=auto'
+
+## Setup LinuxBrew
+#export PATH
+export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
+export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"
+
+# Brew and Pip aliases
+#alias brewski='brew update && brew upgrade --all && brew cask list | xargs brew cleanup; brew cask cleanup; brew doctor'
+alias pipu='pip3 freeze --local | grep -v \'\^\-\e' | cut -d = -f 1  | xargs -n1 pip3 install -U'
+
+# Fancy ZSH Tools
+source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /home/linuxbrew/.linuxbrew/share/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
+source /home/linuxbrew/.linuxbrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+# Adding GOPATH to PATH
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+######################################################
+fpath=(/home/linuxbrew/.linuxbrew/share/zsh-completions $fpath)

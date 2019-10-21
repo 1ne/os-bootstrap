@@ -1,0 +1,5 @@
+#!/bin/bash
+aws ec2 describe-instances --query 'Reservations[].Instances[].[ InstanceId,[Tags[?Key==`Name`].Value][0][0],PublicIpAddress,State.Name,InstanceType,Placement.AvailabilityZone ]'  --filters Name=instance-state-name,Values=pending,running,shutting-down,stopping,stopped --output table "$@"
+
+echo "======= Recently Terminated Instances ======="
+aws ec2 describe-instances --query 'Reservations[].Instances[].[ InstanceId,[Tags[?Key==`Name`].Value][0][0],PublicIpAddress,State.Name,InstanceType,Placement.AvailabilityZone ]'  --filters Name=instance-state-name,Values=terminated --output table "$@"

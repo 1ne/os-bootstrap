@@ -1,0 +1,6 @@
+#!/bin/bash
+regions=$(aws ec2 describe-regions --output text | cut -f 3)
+while read line
+do
+  aws ec2 describe-instances --query 'Reservations[].Instances[].[InstanceId,[Tags[?Key==`Name`].Value][0][0],PublicIpAddress,State.Name,InstanceType,Placement.AvailabilityZone]' --output table --region $line "$@"
+done <<< "$regions"
