@@ -1,4 +1,9 @@
 # os-bootstrap
+
+> [!WARNING]
+> **DEPRECATED — This repository is no longer maintained.**
+> The bootstrap scripts target end-of-life operating systems (Amazon Linux 1/2) and are kept for archival reference only. The repository has been archived (read-only). Use at your own risk.
+
 ### For Amazon Linux 2
 
 ```bash
